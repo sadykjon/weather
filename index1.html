@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        margin: 0;
+      }
+    
+    h1 {
+      background-color: #000;
+      color: #fff;
+      transition: background-color 0.3s ease;
+      overflow: hidden; 
+      white-space: nowrap; 
+      animation: typing 1s steps(20) forwards;
+    }
+    
+    @keyframes typing {
+      0% {
+        width: 0; 
+      }
+      100% {
+        width: 10%; 
+      }
+    }
+    
+    
+    
+    input {
+      background-color: white;
+      border: 1px solid gray;
+      padding: 10px;
+      transition: border-radius 0.5s ease;
+    cursor: pointer;
+    }
+    
+    input:focus {
+      border-radius: 10px solid black;
+    }
+    .p {
+            color: #fff;
+            display: block;
+            column-count: 3;
+            column-gap: 20px;
+            font-size: 20px;
+        }
+        .p p {
+            display: block;
+            margin: 0;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1 class="h1">weather</h1>
+  <input class="input" type="" value="" placeholder="Russia/Moscow" >
+<button>GO</button>
+<div class="p">
+<p class="name">.</p>
+<p >tepreture is</p>
+<p class="temp">.</p>
+<p class="sky">.</p>
+<p>Wind speed is</p>
+<p class="speed">.</p>
+<img class="img" src="" alt="">
+</div>
+
+
+<script>
+    let btn = document.querySelector("button");
+        btn.onclick = () => {
+            let inp = document.querySelector(".input");
+            let city_name = inp.value;
+            let weather = `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&units=metric&appid=6621546e1a94625a215c063e4320d66d`;
+            fetch(weather)
+            .then(res => res.json())
+            .then(json => {
+                console.log("weather>>",json);
+                let name = document.querySelector(".name");
+                let temp = document.querySelector(".temp");
+                let sky = document.querySelector(".sky");
+                let speed = document.querySelector(".speed");
+                let img = document.querySelector("img");
+                name.innerHTML = city_name;
+                temp.innerHTML = json.main.temp;
+                sky.innerHTML = json.weather[0].description;
+                speed.innerHTML = json.wind.speed;
+                img.src = `http://openweathermap.org/img/w/${json.weather[0].icon}.png`;
+            });
+        };
+    
+</script>   
+</body>
+</html>

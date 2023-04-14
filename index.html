@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body {
+        background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+  }
+
+h1 {
+  background-color: #000;
+  color: #fff;
+  transition: background-color 0.3s ease;
+  overflow: hidden; 
+  white-space: nowrap; 
+  animation: typing 1s steps(20) forwards;
+}
+
+@keyframes typing {
+  0% {
+    width: 0; 
+  }
+  100% {
+    width: 10%; 
+  }
+}
+
+
+
+input {
+  background-color: white;
+  border: 1px solid gray;
+  padding: 10px;
+  transition: border-radius 0.5s ease;
+cursor: pointer;
+}
+
+input:focus {
+  border-radius: 10px solid black;
+}
+.p {
+        color: #fff;
+        display: block;
+        column-count: 3;
+        column-gap: 20px;
+        font-size: 20px;
+    }
+    .p p {
+        display: block;
+        margin: 0;
+    }
+    
+</style>
+</head>
+<body>
+     
+
+
+    <!-- https://api.nasa.gov/planetary/apod?api_key=L9xDOU3eTcbwYXPt9Re37iTeUAa0dTplqqW5XvbQ -->
+<!-- <h1></h1>
+<p></p>
+<img src="" alt="">
+<h2></h2> -->
+  <h1 class="h1">weather</h1>
+  <input class="input" type="" value="" placeholder="Russia/Moscow" >
+<button>GO</button>
+<div class="p">
+<p class="name">.</p>
+<p >tepreture is</p>
+<p class="temp">.</p>
+<p class="sky">.</p>
+<p>Wind speed is</p>
+<p class="speed">.</p>
+<img class="img" src="" alt="">
+</div>
+
+<script src="./main.js"></script>
+</body>
+</html>
